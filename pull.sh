@@ -1,10 +1,10 @@
 #!/bin/bash
 # Name:       pull.sh
 # Maintainer: https://github.com/EvanQuan/dotfiles/
-# Version:    0.1.0
+# Version:    0.2.0
 #
 # Pull
-# Updates from repository and moves files to home directory.
+# Updates from repository, moves files to home directory, and reloads them.
 
 # Update from the master branch
 git pull origin master
@@ -14,6 +14,7 @@ home_directory=~
 
 dotfiles=$current_directory/.*
 
+# Update files
 printf "Updating local files:\n"
 for file in $dotfiles; do
     if [ -f $file ]; then
@@ -23,4 +24,9 @@ for file in $dotfiles; do
         cp $file $home_file
     fi
 done
+
+# Source files
+source $home_directory/.bash_profile
+bind -f $home_directory/.inputrc
+
 printf "DONE\n"

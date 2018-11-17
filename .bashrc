@@ -6,8 +6,7 @@ System=`uname`
 # Vi
 command -v vim >/dev/null 2>&1
 if [ $? -eq 0 ] ; then
-    alias vi=vim
-    alias v=vim
+    alias vi='vim --clean'
 fi
 
 # Xterm
