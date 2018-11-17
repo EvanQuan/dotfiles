@@ -22,6 +22,8 @@ if [ "$PS1" ]; then
     PS1='\u@\h:\w$ '
 fi
 
+alias la='ls -a'
+
 # Some tmux-related shell aliases
 
 # Attaches tmux to the last session; creates a new session if none exists.
