@@ -1,3 +1,4 @@
 # source .bashrc to keep config consistent
-
-[[ -f ~/.bashrc  ]] && . ~/.bashrc
+if [ -f $HOME/.bashrc ]; then
+    source $HOME/.bashrc
+fi
