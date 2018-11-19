@@ -1,6 +1,3 @@
-
-. /etc/bashrc
-
 System=`uname`
 
 # Vi
