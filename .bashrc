@@ -3,7 +3,8 @@ System=`uname`
 # Vi
 command -v vim >/dev/null 2>&1
 if [ $? -eq 0 ] ; then
-    alias vi='vim --clean'
+    alias v='vim --clean'
+    alias vi='vim'
 fi
 
 # Xterm
@@ -66,6 +67,8 @@ if [ "$PS1" ]; then
     # PS1='\u@\h:\w$ '
     export PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\] `parse_git_branch`\[\033[0m\]\n$ '
 fi
+
+LS_COLORS="di=1;34:ex=1;31:"
 
 alias la='ls -a'
 
