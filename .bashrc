@@ -1,5 +1,7 @@
 System=`uname`
 
+TERM=screen-256color
+
 # Vi
 command -v vim >/dev/null 2>&1
 if [ $? -eq 0 ] ; then
@@ -68,9 +70,16 @@ if [ "$PS1" ]; then
     export PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\] `parse_git_branch`\[\033[0m\]\n$ '
 fi
 
-LS_COLORS="di=1;34:ex=1;31:"
+# if [ "$LS_COLORS" ]; then
+#     export LS_COLORS="di=1;34:ex=1;31:"
+# fi
+LS_COLORS=$LS_COLORS:'di=1;34:ex=1;31:'
+export LS_COLORS
 
+# Make ls shows colors
+alias ls='ls --color=auto'
 alias la='ls -a'
+alias python='python3'
 
 # Some tmux-related shell aliases
 
