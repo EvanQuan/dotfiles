@@ -72,6 +72,8 @@ LS_COLORS="di=1;34:ex=1;31:"
 
 alias la='ls -a'
 
+alias pythona='/anaconda3/bin/python'
+
 # Some tmux-related shell aliases
 
 # Attaches tmux to the last session; creates a new session if none exists.
