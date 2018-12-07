@@ -26,7 +26,7 @@ for file in $dotfiles; do
 done
 
 # Source files
-source $home_directory/.bash_profile
-bind -f $home_directory/.inputrc
+# source $home_directory/.bash_profile
+# bind -f $home_directory/.inputrc
 
 printf "DONE\n"
