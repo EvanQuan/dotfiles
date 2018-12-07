@@ -73,11 +73,15 @@ fi
 # if [ "$LS_COLORS" ]; then
 #     export LS_COLORS="di=1;34:ex=1;31:"
 # fi
+
 LS_COLORS=$LS_COLORS:'di=1;34:ex=1;31:'
 export LS_COLORS
 
-# Make ls shows colors
-alias ls='ls --color=auto'
+# ls colors on mac
+export CLICOLOR=1
+
+# ls colors on linux
+# alias ls='ls --color=auto'
 alias la='ls -a'
 alias python='python3'
 
