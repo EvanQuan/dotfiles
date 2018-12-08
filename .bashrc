@@ -77,11 +77,15 @@ fi
 LS_COLORS=$LS_COLORS:'di=1;34:ex=1;31:'
 export LS_COLORS
 
-# ls colors on mac
-export CLICOLOR=1
+# ls colors are enabled differently depending on the Operating System
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Fedora 28 Twenty Eight (x86-64)
+    alias ls='ls --color=auto'
+elif [[ "$OSTYPE" ==  "darwin17" ]]; then
+    # macOS High Sierra 10.13.6
+    export CLICOLOR=1
+fi
 
-# ls colors on linux
-# alias ls='ls --color=auto'
 alias la='ls -a'
 alias python='python3'
 
