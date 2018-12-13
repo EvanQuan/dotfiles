@@ -18,7 +18,7 @@ fi
 
 # CREDIT: http://ezprompt.net/
 # get current branch in git repo
-function parse_git_branch() {
+function parse_git_branch() { # {{{
     BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
     if [ ! "${BRANCH}" == "" ]
     then
@@ -27,10 +27,10 @@ function parse_git_branch() {
     else
         echo ""
     fi
-}
+} # }}}
 
 # get current status of git repo
-function parse_git_dirty {
+function parse_git_dirty { # {{{
     status=`git status 2>&1 | tee`
     dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
     untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
@@ -62,7 +62,7 @@ function parse_git_dirty {
     else
         echo ""
     fi
-}
+} # }}}
 
 # Prompt
 if [ "$PS1" ]; then
@@ -113,3 +113,5 @@ alias gc='git commit'
 alias gp='git push'
 alias gu='git pull'
 alias gd='git diff'
+alias ge='git config -e'
+alias gg='git config --global -e'
