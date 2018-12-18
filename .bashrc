@@ -87,7 +87,6 @@ elif [[ "$OSTYPE" ==  "darwin17" ]]; then
 fi
 
 alias la='ls -a'
-alias python='python3'
 
 alias pythona='/anaconda3/bin/python'
 
