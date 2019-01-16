@@ -65,20 +65,20 @@ function parse_git_dirty { # {{{
 } # }}}
 
 # Prompt
-if [ "$PS1" ]; then
+if ! [ "$PS1" ]; then
     # PS1='\u@\h:\w$ '
     export PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\] `parse_git_branch`\[\033[0m\]\n$ '
 fi
 
-# if [ "$LS_COLORS" ]; then
-#     export LS_COLORS="di=1;34:ex=1;31:"
-# fi
+if ! [ "$LS_COLORS" ]; then
+    export LS_COLORS="di=1;34:ex=1;31:"
+fi
 
-LS_COLORS=$LS_COLORS:'di=1;34:ex=1;31:'
-export LS_COLORS
+# LS_COLORS=$LS_COLORS:'di=1;34:ex=1;31:'
+# export LS_COLORS
 
 # ls colors are enabled differently depending on the Operating System
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "linux-gnu" || "$OSTYPE" == "msys" ]]; then
     # Fedora 28 Twenty Eight (x86-64)
     alias ls='ls --color=auto'
 elif [[ "$OSTYPE" ==  "darwin17" ]]; then
